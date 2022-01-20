@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VapestoreController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,10 @@ use App\Http\Controllers\VapestoreController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "view('welcome')";
 });
 
-Route::resource('/vapestore',VapestoreController::class);
-Route::get('/vapestore/get',[VapestoreController::class,'getStore']);
+//Route::resource('/vapestore',VapestoreController::class);
+
 
 
