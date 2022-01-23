@@ -22,8 +22,8 @@ class VapestoreController extends Controller
     public function getStore()
     {
         $store = vapestore::all();
-       
-        return dd($store);
+
+        return $store;
     }
 
     /**

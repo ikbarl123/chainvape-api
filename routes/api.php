@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VapestoreController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ThreadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,8 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
 });
 
 //Route::resource('/vapestore',VapestoreController::class);
-//Route::get('/vapestore/get',[VapestoreController::class,'getStore']);
-Route::post('/register',[AuthController::class,'register']);
+Route::get('/vapestore/get',[VapestoreController::class,'getStore']);
+Route::get('/thread/get',[ThreadController::class,'index']);
+Route::post('/auth/register',[AuthController::class,'register']);
 
-Route::post('/login',[AuthController::class,'login']);
+Route::post('/auth/login',[AuthController::class,'login']);
