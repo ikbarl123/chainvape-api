@@ -9,6 +9,7 @@ class Thread extends Model
 {
     use HasFactory;
     protected $fillable=[];
+    protected $with = ['Author:id,name','Reply'];
     public function Category()
     {
         return $this->BelongsTo(Category::class,'cat_id', 'id');

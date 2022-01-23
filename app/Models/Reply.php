@@ -9,7 +9,7 @@ class Reply extends Model
 {
     use HasFactory;
     protected $fillable=[];
-    protected $with = ['user'];
+    protected $with = ['user:id,name'];
     public function Thread()
     {
         return $this->BelongsTo(Thread::class,'thread_id', 'id');

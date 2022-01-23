@@ -9,7 +9,7 @@ class ThreadController extends Controller
 {
     public function index()
     {
-        $store = Thread::with('Author','Reply')->get();
+        $store = Thread::all();
         return $store;
     }
 
