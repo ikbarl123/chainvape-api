@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Thread extends Model
 {
     use HasFactory;
-    protected $fillable=[];
-    protected $with = ['Author:id,name','Reply'];
+    protected $fillable=['user_id','title','text'];
+    protected $with = ['Author:id,name'];
     public function Category()
     {
         return $this->BelongsTo(Category::class,'cat_id', 'id');

@@ -17,7 +17,7 @@ class CreateRepliesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('thread_id')->constrained('threads');
-            $table->string('Text');
+            $table->string('text');
             $table->timestamps();
         });
     }
