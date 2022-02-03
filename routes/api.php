@@ -23,13 +23,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware'=>['auth:sanctum']],function(){
     // pasang route disini
     Route::post('/logout',[AuthController::class,'logout']);
-    Route::get('/thread',[ThreadController::class,'ThreadList']);
-    Route::post('/thread/get',[ThreadController::class,'ThreadView']);
+
     Route::Post('/thread/create',[ThreadController::class,'CreateThread']);
     Route::Post('/thread/reply',[ThreadController::class,'AddReply']);
 
 
 });
+
+
+Route::get('/forum',[ThreadController::class,'ThreadList']);
+Route::get('/thread/get/{id}',[ThreadController::class,'ThreadView']);
 
 //Route::resource('/vapestore',VapestoreController::class);
 Route::get('/vapestore/get',[VapestoreController::class,'getStore']);
@@ -37,3 +40,4 @@ Route::get('/vapestore/get',[VapestoreController::class,'getStore']);
 Route::post('/auth/register',[AuthController::class,'register']);
 
 Route::post('/auth/login',[AuthController::class,'login']);
+ 

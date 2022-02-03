@@ -14,12 +14,15 @@ class ThreadController extends Controller
         return $thread;
     }
 
-    public function ThreadView(Request $request)
+    public function ThreadView($id)
     {
-        $thread = Thread::where('id',$request->id)->with('Reply')->get();
-
-        return $thread;
+        $reply = Reply::where('thread_id',$id)->get();
+        if ($reply->isEmpty()) {
+            return Response(null,204);
+         }
+        return $reply;
     }
+
     public function CreateThread(Request $request)
     {
         $user=auth()->user();
@@ -29,7 +32,7 @@ class ThreadController extends Controller
             'user_id'=> $user['id']
         ]);
 
-        return response(201);;
+        return response(201);
     }
     
     public function AddReply(Request $request)
@@ -41,7 +44,7 @@ class ThreadController extends Controller
             'user_id'=> $user['id']
         ]);
 
-        return response(201);;
+        return response(201);
     }
 
 }
